@@ -1,0 +1,24 @@
+﻿<button class=@((Active) ? "burger active" : "burger")
+        @onclick="OnClick"
+        type="button" aria-label="Меню">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+@code{
+    public bool Active { get; set; } = false;
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
+    public async void ToggleBurger()
+    {
+        Active = !Active;
+    }
+
+    public void Refresh()
+    {
+        StateHasChanged();
+    }
+}

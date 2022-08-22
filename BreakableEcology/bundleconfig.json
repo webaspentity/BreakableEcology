@@ -1,0 +1,32 @@
+[
+  {
+    "outputFileName": "wwwroot/css/app.min.css",
+    "inputFiles": [
+      "wwwroot/css/app.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Logo.razor.min.css",
+    "inputFiles": [
+      "Components/Logo.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Telephone.razor.min.css",
+    "inputFiles": [
+      "Components/Telephone.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Container.razor.min.css",
+    "inputFiles": [
+      "Components/Container.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Shared/MainLayout.razor.min.css",
+    "inputFiles": [
+      "Shared/MainLayout.razor.css"
+    ]
+  }
+]

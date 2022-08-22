@@ -1,0 +1,14 @@
+﻿<nav class="menu">
+    <ul class="menu__items">
+        <li class="menu__item menu__dropdown">
+            <DropDown />
+        </li>
+        @foreach (LinkModel link in AppData.MenuLinks)
+        {
+            <li class="menu__item" tabindex="0">
+                <NavLink class="menu__link" href="@link.Url">@link.Text</NavLink>
+                @*<a class="menu__link" href="@link.Url">@link.Text</a>*@
+            </li>
+        }
+    </ul>
+</nav>

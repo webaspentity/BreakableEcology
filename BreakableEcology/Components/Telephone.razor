@@ -1,0 +1,19 @@
+﻿@if (Theme == ThemeType.Dark)
+{
+    <a href="tel:+79209994350" class="telephone telephone_dark">
+        <img src="images/icons/carbon_phone.svg" alt="Телефон" />
+        <span>8 920 999 43 50</span>
+    </a>
+}
+else if (Theme == ThemeType.Light)
+{
+    <a href="tel:+79209994350" class="telephone telephone_light">
+        <img src="images/icons/white_phone.svg" alt="Телефон" />
+        <span>8 920 999 43 50</span>
+    </a>
+}
+
+@code {
+    [Parameter]
+    public ThemeType Theme { get; set; }
+}

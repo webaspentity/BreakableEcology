@@ -1,0 +1,22 @@
+﻿<header class=@cssClass>
+    <Container>
+        <Logo Title="Breakably Ecology" />
+        <Burger OnClick="OnBurgerClick" @ref=burger />
+        <Account />
+        <Search />
+        <Menu />
+        <Telephone Theme="ThemeType.Dark" />
+    </Container>
+</header>
+
+@code {
+    private string cssClass = "header";
+
+    Burger? burger;
+
+    private void OnBurgerClick()
+    {
+        cssClass = (cssClass.Contains("active")) ? "header" : "header active";
+        burger?.ToggleBurger();
+    }
+}

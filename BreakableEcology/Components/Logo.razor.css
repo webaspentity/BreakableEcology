@@ -1,0 +1,20 @@
+﻿.logo {
+    font-family: 'Inglobal', sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #4BB04F;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    text-shadow: 1px 0px 1px seagreen;
+    padding: 0.4em 0;
+    user-select: none;
+}
+
+    .logo img {
+        transform: rotate3d(0,1,0,180deg);
+        width: 2.25em;
+        height: 2.25em;
+    }

@@ -1,0 +1,11 @@
+﻿<div class="dropdown">
+    <button class="dropdown__title" type="button">Каталог</button>
+    <ul class="dropdown__items">
+        @foreach (LinkModel link in AppData.DropDownOptions)
+        {
+            <li class="dropdown__item">
+                <a class="dropdown__link" href="@link.Url">@link.Text</a>
+            </li>
+        }
+    </ul>
+</div>
