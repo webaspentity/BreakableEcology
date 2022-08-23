@@ -1,0 +1,24 @@
+﻿@typeparam T
+
+<section class="section">
+    <Container>
+        @if (!String.IsNullOrEmpty(Title)){
+            <SectionTitle>@Title</SectionTitle>
+        }
+        <div class="section__cards">
+            @if (typeof(T) == typeof(Card)){
+                foreach (CatalogCardModel model in AppData.CatalogCards)
+                {
+                    <Card Item="@model" />
+                }
+            }
+        </div>
+    </Container>
+</section>
+
+@code {
+    [Parameter]
+    public T Items { get; set; }
+    [Parameter]
+    public string? Title { get; set; }
+}

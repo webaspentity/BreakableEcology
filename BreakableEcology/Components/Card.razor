@@ -1,0 +1,22 @@
+﻿<figure class="card @((Theme == ThemeType.Light) ? "card_white" : "card_grey")">
+    @if (Item is not null)
+    {
+        <div class="card__body">
+            <img src="@Item.Image?.Source" alt="@Item.Image?.Alt" class="card__image" />
+            <figcaption class="card__title">
+                @Item.CatalogName
+                @if (Item.Remark is not null){
+                    <span>@Item.Remark</span>
+                }
+            </figcaption>
+        </div>
+        <a href="@Item.Link?.Url" class="catalog-card__link">@Item.Link?.Text</a>
+    }
+</figure>
+
+@code {
+    [Parameter]
+    public CatalogCardModel? Item { get; set; }
+    [Parameter]
+    public ThemeType Theme { get; set; }
+}

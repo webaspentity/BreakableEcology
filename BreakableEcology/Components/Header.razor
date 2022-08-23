@@ -1,7 +1,9 @@
-﻿<header class=@cssClass>
+﻿@inject IJSRuntime js
+
+<header class=@cssClass>
     <Container>
         <Logo Title="Breakably Ecology" />
-        <Burger OnClick="OnBurgerClick" @ref=burger />
+        <Burger OnClick="ToggleHeaderState" @ref=burger />
         <Account />
         <Search />
         <Menu />
@@ -11,12 +13,28 @@
 
 @code {
     private string cssClass = "header";
+    private DotNetObjectReference<Header>? objRef;
 
     Burger? burger;
 
-    private void OnBurgerClick()
+    [JSInvokable]
+    public void ToggleHeaderState()
     {
         cssClass = (cssClass.Contains("active")) ? "header" : "header active";
         burger?.ToggleBurger();
+    }
+
+    [JSInvokable]
+    public void Refresh(){
+        StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            objRef = DotNetObjectReference.Create(this);
+            await js.InvokeVoidAsync("setHeader", objRef);
+        }
     }
 }

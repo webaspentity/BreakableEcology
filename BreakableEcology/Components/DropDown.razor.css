@@ -46,7 +46,7 @@
     border-radius: 15px;
     width: max-content;
     background-color: #fff;
-    max-width: 90vw;
+    max-width: 40vw;
 }
 
     .dropdown__title:focus ~ .dropdown__items {
