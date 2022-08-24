@@ -47,6 +47,7 @@
     width: max-content;
     background-color: #fff;
     max-width: 40vw;
+    z-index: 5;
 }
 
     .dropdown__title:focus ~ .dropdown__items {

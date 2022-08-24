@@ -1,22 +1,48 @@
-﻿<figure class="card @((Theme == ThemeType.Light) ? "card_white" : "card_grey")">
-    @if (Item is not null)
-    {
-        <div class="card__body">
-            <img src="@Item.Image?.Source" alt="@Item.Image?.Alt" class="card__image" />
-            <figcaption class="card__title">
-                @Item.CatalogName
-                @if (Item.Remark is not null){
-                    <span>@Item.Remark</span>
-                }
-            </figcaption>
+﻿@if (Item is not null)
+{
+    <figure class="card @((Item.Theme == ThemeType.Light) ? "card_white" : "card_grey")">
+
+        <a class="card__image" href="@Item.Href">
+            <img src="@Item.Image?.Source" alt="@Item.Image?.Alt" />
+        </a>
+
+        <figcaption class="card__title">
+            @Item.Title
+            @if (!string.IsNullOrEmpty(Item.Remark))
+            {
+                <span>@Item.Remark</span>
+            }
+        </figcaption>
+
+        @if (Item.Price is not null)
+        {
+            <p class="cart__price">@Item.Price руб.</p>
+        }
+
+        @if (Item.ShowWeights)
+        {
+            <InputRadioGroup class="cart__weights" TValue="int">
+                <InputRadio Name="200 г" TValue="int" Value="200" />
+                <InputRadio Name="400 г" TValue="int" Value="400" />
+                <InputRadio Name="800 г" TValue="int" Value="800" />
+                <InputRadio Name="1 кг" TValue="int" Value="1000" />
+            </InputRadioGroup>
+        }
+
+        <div class="card__controls">
+            <a href="@Item.Link?.Url" class="card__link">@Item.Link?.Text</a>
+            @if (Item.ShowCart)
+            {
+                <button class="card__button" type="button" aria-label="Добавить в корзину">
+                    <img src="images/icons/cart.svg" alt="Корзина"/>
+                </button>
+            }
         </div>
-        <a href="@Item.Link?.Url" class="catalog-card__link">@Item.Link?.Text</a>
-    }
-</figure>
+
+    </figure>
+}
 
 @code {
     [Parameter]
-    public CatalogCardModel? Item { get; set; }
-    [Parameter]
-    public ThemeType Theme { get; set; }
+    public CardModel? Item { get; set; }
 }

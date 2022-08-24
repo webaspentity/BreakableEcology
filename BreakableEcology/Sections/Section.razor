@@ -1,13 +1,12 @@
-﻿@typeparam T
-
-<section class="section">
+﻿<section class="section">
     <Container>
-        @if (!String.IsNullOrEmpty(Title)){
-            <SectionTitle>@Title</SectionTitle>
+        @if (!String.IsNullOrEmpty(Title))
+        {
+            <SectionTitle Href="@Href">@Title</SectionTitle>
         }
-        <div class="section__cards">
-            @if (typeof(T) == typeof(Card)){
-                foreach (CatalogCardModel model in AppData.CatalogCards)
+        <div class=@((ProductsSection) ? "section__cards products-section" : "section__cards")>
+            @if (Items is not null){
+                @foreach (CardModel model in Items)
                 {
                     <Card Item="@model" />
                 }
@@ -18,7 +17,11 @@
 
 @code {
     [Parameter]
-    public T Items { get; set; }
+    public List<CardModel>? Items { get; set; }
     [Parameter]
     public string? Title { get; set; }
+    [Parameter]
+    public bool ProductsSection { get; set; }
+    [Parameter]
+    public string Href { get; set; }
 }
