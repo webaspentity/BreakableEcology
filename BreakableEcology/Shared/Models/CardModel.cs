@@ -13,4 +13,5 @@ public class CardModel
     public bool ShowWeights { get; set; }
     public bool ShowCart { get; set; }
     public string? Href { get; set; }
+    public bool Discount { get; set; }
 }

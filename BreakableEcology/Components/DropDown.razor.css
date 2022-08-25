@@ -62,8 +62,8 @@
     padding: 1.1111111em;
 }
 
-    .dropdown__item:hover{
-        background-color: seagreen;
+    .dropdown__item:hover {
+        background-color: #3ecf5e;
         color: white;
         cursor: pointer;
     }
@@ -81,7 +81,6 @@
         @media only screen and (max-width: 48em) {
             .dropdown__items {
                 position: static;
-                transform: translate3d(1em,0,0);
                 height: auto;
                 box-shadow: unset;
                 border-radius: unset;

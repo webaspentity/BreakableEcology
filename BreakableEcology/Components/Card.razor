@@ -21,12 +21,16 @@
 
         @if (Item.ShowWeights)
         {
-            <InputRadioGroup class="cart__weights" TValue="int">
-                <InputRadio Name="200 г" TValue="int" Value="200" />
-                <InputRadio Name="400 г" TValue="int" Value="400" />
-                <InputRadio Name="800 г" TValue="int" Value="800" />
-                <InputRadio Name="1 кг" TValue="int" Value="1000" />
-            </InputRadioGroup>
+            <EditForm Model="product">
+                <InputRadioGroup @bind-Value="product.Weight">
+                    <div class="card__radio">
+                        <label class=@((product.Weight == 200) ? "card__weight-label checked" : "card__weight-label")><InputRadio TValue="int" Value="200" />200 г</label>
+                        <label class=@((product.Weight == 400) ? "card__weight-label checked" : "card__weight-label")><InputRadio TValue="int" Value="400" />400 г</label>
+                        <label class=@((product.Weight == 800) ? "card__weight-label checked" : "card__weight-label")><InputRadio TValue="int" Value="800" />800 г</label>
+                        <label class=@((product.Weight == 1000) ? "card__weight-label checked" : "card__weight-label")><InputRadio TValue="int" Value="1000" />1 кг</label>
+                    </div>
+                </InputRadioGroup>
+            </EditForm>
         }
 
         <div class="card__controls">
@@ -34,15 +38,36 @@
             @if (Item.ShowCart)
             {
                 <button class="card__button" type="button" aria-label="Добавить в корзину">
-                    <img src="images/icons/cart.svg" alt="Корзина"/>
+                    <img src="images/icons/cart.svg" alt="Корзина" />
                 </button>
             }
         </div>
+
+        @if (Item.Discount)
+        {
+            <div class="card__discount">Скидка</div>
+        }
 
     </figure>
 }
 
 @code {
+    private Product product;
+
     [Parameter]
     public CardModel? Item { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (Item?.Price is not null)
+        {
+            product = new()
+                {
+                    Price = Item.Price,
+                    Name = Item.Title,
+                    Id = Guid.NewGuid().GetHashCode(),
+                    Weight = 200
+                };
+        }
+    }
 }

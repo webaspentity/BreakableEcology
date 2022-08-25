@@ -41,10 +41,13 @@
 
 @media only screen and (max-width: 48em) {
     .header {
-        padding: 1em 0;
+        padding: 0;
         position: sticky;
+        top: 0;
         width: 100vw;
         max-width: 100%;
+        z-index: 2;
+        box-shadow: 1px 1px 20px rgba(0,0,0,0.4);
     }
 
         .header::-webkit-scrollbar{
@@ -98,6 +101,7 @@
         .header.active {
             height: 100vh;
             overflow-y: auto;
+            padding-bottom: 1em;
         }
 
             .header.active ::deep .container {
@@ -116,7 +120,7 @@
 
             .header.active ::deep .account {
                 grid-area: account;
-                background-color: lightgoldenrodyellow;
+                background-color: lightyellow;
                 padding: 1em;
                 border-radius: 15px;
             }
@@ -127,7 +131,8 @@
 
             .header.active ::deep .telephone {
                 grid-area: telephone;
-                background-color: lightgoldenrodyellow;
+                /*background-color: lightgoldenrodyellow;*/
+                background-color: lightyellow;
                 width: 100%;
                 border-radius: 15px;
             }

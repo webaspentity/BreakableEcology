@@ -1,0 +1,41 @@
+﻿<div class="donation-form">
+    <EditForm class="donation-form" Model="donation" method="post">
+        <fieldset class="donation-form__fieldset">
+            <legend class="donation-form__legend">Пожертвуйте на благо проекта</legend>
+            <InputRadioGroup @bind-Value="donation.MonthlyPayment">
+                <div class="donation-form__radiobuttons">
+                    <label class=@((donation.MonthlyPayment) ? "donation-form__label" : "donation-form__label checked") tabindex="0" @onkeypress="OnKeypressOnetime"><InputRadio TValue="bool" Value="false" /><span>Единоразовая выплата</span></label>
+                    <label class=@((!donation.MonthlyPayment) ? "donation-form__label" : "donation-form__label checked") tabindex="0" @onkeypress="OnKeypressMonthly"><InputRadio TValue="bool" Value="true" /><span>Ежемесячные выплаты</span></label>
+                </div>
+            </InputRadioGroup>
+            <div class="donation-form__send">
+                <InputNumber TValue="decimal?" @bind-Value="donation.Amount" placeholder="Введите сумму" class="donation-form__amount" />
+                <button type="submit" aria-label="Пожертвовать" class="donation-form__button">Пожертвовать</button>
+            </div>
+        </fieldset>
+    </EditForm>
+</div>
+
+@code {
+    private DonationModel donation;
+
+    protected override void OnInitialized()
+    {
+        donation = new DonationModel();
+    }
+
+    private void OnKeypressOnetime(KeyboardEventArgs args){
+        if (args.Key == "Enter" || args.Code == "Space")
+        {
+            donation.MonthlyPayment = false;
+        }
+    }
+
+    private void OnKeypressMonthly(KeyboardEventArgs args)
+    {
+        if (args.Key == "Enter" || args.Code == "Space")
+        {
+            donation.MonthlyPayment = true;
+        }
+    }
+}

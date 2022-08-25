@@ -4,7 +4,7 @@
         {
             <SectionTitle Href="@Href">@Title</SectionTitle>
         }
-        <div class=@((ProductsSection) ? "section__cards products-section" : "section__cards")>
+        <div class=@((Is4Section) ? "section__cards section-4" : "section__cards")>
             @if (Items is not null){
                 @foreach (CardModel model in Items)
                 {
@@ -21,7 +21,7 @@
     [Parameter]
     public string? Title { get; set; }
     [Parameter]
-    public bool ProductsSection { get; set; }
+    public bool Is4Section { get; set; }
     [Parameter]
     public string Href { get; set; }
 }

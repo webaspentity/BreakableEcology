@@ -13,7 +13,7 @@
     grid-row-gap: 2em;
 }
 
-.products-section {
+.section-4 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -22,19 +22,19 @@
 }
 
 @media only screen and (max-width: 101.875em) {
-    .products-section {
+    .section-4 {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 @media only screen and (max-width: 54.0625em){
-    .products-section, .section__cards {
+    .section-4, .section__cards {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media only screen and (max-width: 36.5625em) {
-    .section__cards, .products-section {
+    .section__cards, .section-4 {
         grid-template-columns: 1fr;
     }
 }
