@@ -1,8 +1,8 @@
-﻿.donation-form{
+﻿.donation-form {
     max-width: 50%;
 }
 
-.donation-form__fieldset{
+.donation-form__fieldset {
     border: none;
     display: grid;
     grid-template-columns: 1fr;
@@ -19,35 +19,35 @@
     font-weight: 600;
 }
 
-    .donation-form__radiobuttons {
-        display: flex;
-        column-gap: 4em;
-        row-gap: 2em;
-        flex-wrap: wrap;
-    }
+.donation-form__radiobuttons {
+    display: flex;
+    column-gap: 4em;
+    row-gap: 2em;
+    flex-wrap: wrap;
+}
 
-    .donation-form__radiobuttons ::deep input{
+    .donation-form__radiobuttons ::deep input {
         opacity: 0;
         visibility: hidden;
         position: absolute;
     }
 
-    .donation-form__label {
-        font-size: 1.8em;
-        position: relative;
+.donation-form__label {
+    font-size: 1.8em;
+    position: relative;
+}
+
+    .donation-form__label:hover {
+        cursor: pointer;
     }
 
-        .donation-form__label:hover{
-            cursor: pointer;
-        }
-
-        .donation-form__label span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-left: 1.8em;
-            padding: 0.125em 1.8em;
-        }
+    .donation-form__label span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 1.8em;
+        padding: 0.125em 1.8em;
+    }
 
         .donation-form__label span::before {
             display: flex;
@@ -66,42 +66,42 @@
             color: #333;
         }
 
-        .donation-form__label.checked span::before {
-            content: "\2714";
-        }
+    .donation-form__label.checked span::before {
+        content: "\2714";
+    }
 
-        .donation-form__radiobutton {
-        }
+.donation-form__radiobutton {
+}
 
-.donation-form__send{
+.donation-form__send {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.donation-form__send ::deep input::-webkit-outer-spin-button,
-.donation-form__send ::deep input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-.donation-form__send ::deep input {
-    padding: 1em;
-    font-size: 1.8em;
-    border-radius: 10px;
-    border: none;
-    outline: 2px solid #fff;
-    transition: .4s ease;
-    flex: 1 1 auto;
-}
-
-    .donation-form__send ::deep input:focus {
-        outline: 3px solid #333;
+    .donation-form__send ::deep input::-webkit-outer-spin-button,
+    .donation-form__send ::deep input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
     }
 
-    .donation-form__send ::deep input::placeholder {
+    .donation-form__send ::deep input {
+        padding: 1em;
+        font-size: 1.8em;
+        border-radius: 10px;
+        border: none;
         transition: .4s ease;
+        flex: 1 1 auto;
     }
+
+        .donation-form__send ::deep input:focus {
+            outline: none;
+            box-shadow: 4px 8px #333333d5 ;
+        }
+
+        .donation-form__send ::deep input::placeholder {
+            transition: .4s ease;
+        }
 
         .donation-form__send ::deep input:focus::placeholder {
             transform: translate3d(-100%,0,0);
@@ -120,13 +120,13 @@
     color: #333;
 }
 
-.donation-form__button:hover{
-    background-color: #333;
-    color: #fff;
-}
+    .donation-form__button:hover {
+        background-color: #333;
+        color: #fff;
+    }
 
-@media only screen and (max-width: 48em){
-    .donation-form{
+@media only screen and (max-width: 48em) {
+    .donation-form {
         max-width: unset;
     }
 }

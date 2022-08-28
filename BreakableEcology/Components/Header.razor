@@ -1,6 +1,6 @@
 ﻿@inject IJSRuntime js
 
-<header class=@cssClass>
+<header class=@cssClass id="header">
     <Container>
         <Logo Title="Breakably Ecology" />
         <Burger OnClick="ToggleHeaderState" @ref=burger />
@@ -12,10 +12,15 @@
 </header>
 
 @code {
+    #region Fields
+
     private string cssClass = "header";
     private DotNetObjectReference<Header>? objRef;
-
     Burger? burger;
+
+    #endregion
+
+    #region Methods
 
     [JSInvokable]
     public void ToggleHeaderState()
@@ -37,4 +42,6 @@
             await js.InvokeVoidAsync("setHeader", objRef);
         }
     }
+    #endregion
 }
+

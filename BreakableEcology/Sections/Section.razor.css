@@ -1,10 +1,10 @@
-﻿.section{
+﻿.section {
 }
 
-.section ::deep .container{
-    display: grid;
-    grid-row-gap: 2em;
-}
+    .section ::deep .container {
+        display: grid;
+        grid-row-gap: 2em;
+    }
 
 .section__cards {
     display: grid;
@@ -21,13 +21,38 @@
     flex: 0 1 30%;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination__arrow {
+    border: none;
+    width: 3em;
+    height: 3em;
+    background: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.8361 2.82734C11.0348 3.02214 11.0528 3.32696 10.8903 3.54177L10.8361 3.60331L6.35106 7.99996L10.8361 12.3966C11.0348 12.5914 11.0528 12.8962 10.8903 13.111L10.8361 13.1726C10.6374 13.3674 10.3264 13.3851 10.1073 13.2257L10.0445 13.1726L5.16393 8.38795C4.96523 8.19315 4.94716 7.88832 5.10974 7.67351L5.16393 7.61197L10.0445 2.82734C10.2631 2.61306 10.6175 2.61306 10.8361 2.82734Z' fill='%23333333'/%3E%3C/svg%3E") center no-repeat;
+}
+
+    .pagination__arrow.hidden{
+        visibility: hidden;
+        cursor: default;
+    }
+
+    .pagination__arrow:hover {
+        cursor: pointer;
+    }
+
+.pagination__arrow_right {
+    transform: rotate3d(0,0,1,180deg)
+}
+
 @media only screen and (max-width: 101.875em) {
     .section-4 {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
-@media only screen and (max-width: 54.0625em){
+@media only screen and (max-width: 54.0625em) {
     .section-4, .section__cards {
         grid-template-columns: 1fr 1fr;
     }

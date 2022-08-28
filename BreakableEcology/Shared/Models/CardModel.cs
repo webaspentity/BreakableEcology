@@ -14,4 +14,6 @@ public class CardModel
     public bool ShowCart { get; set; }
     public string? Href { get; set; }
     public bool Discount { get; set; }
+    public string[]? Text { get; set; }
+    public int Quantity { get; set; }
 }

@@ -1,9 +1,9 @@
-﻿.menu{
+﻿.menu {
     font-size: 1.8em;
     position: relative;
 }
 
-.menu__items{
+.menu__items {
     display: flex;
     column-gap: 2.2222222em;
     row-gap: 1em;
@@ -17,9 +17,9 @@
     cursor: pointer;
 }
 
-    .menu__item:hover {
-        box-shadow: 0px 2px 0px seagreen;
-    }
+.menu__item:hover {
+    box-shadow: 0px 2px 0px seagreen;
+}
 
 ::deep .menu__link {
     text-decoration: none;
@@ -32,12 +32,12 @@
         color: #4BB04F;
     }
 
-    @media only screen and (max-width: 48em){
-        .menu__items {
-            flex-direction: column;
-        }
-
-        .menu__dropdown:hover {
-            box-shadow: unset;
-        }
+@media only screen and (max-width: 48em) {
+    .menu__items {
+        flex-direction: column;
     }
+
+    .menu__dropdown:hover {
+        box-shadow: unset;
+    }
+}

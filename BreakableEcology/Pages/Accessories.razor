@@ -1,0 +1,17 @@
+﻿@page "/catalog/accessories"
+
+<PageTitle>Аксессуары и другое</PageTitle>
+
+<Container>
+    <Breadcrumb Path="@breadcrumbs" />
+</Container>
+
+<Section Is4Section=true Items="AppData.AccessoriesList" ManyPages=true></Section>
+
+
+@code {
+    private List<LinkModel> breadcrumbs = new List<LinkModel>() {
+        new() { Url = "/catalog", Text = "Каталог" },
+        new() { Url = "/catalog/accessories", Text = "Аксессуары и другое" }
+    };
+}

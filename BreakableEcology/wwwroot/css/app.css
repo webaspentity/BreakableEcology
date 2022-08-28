@@ -1,5 +1,6 @@
-﻿:root{
+﻿:root {
     scroll-behavior: smooth;
+    --preloader-color: #4f4f4f;
 }
 
 @font-face {
@@ -64,7 +65,87 @@ body {
         border: 0.2em solid #f9f9f9;
     }
 
-.page{
+.page {
     display: grid;
     grid-row-gap: 7.5em;
+}
+
+.nothing {
+    padding: 2em;
+    font-size: 1.6em;
+    margin: 0;
+    text-align: center;
+}
+
+.preloader {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+    .preloader div {
+        color: var(--preloader-color);
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1.4em;
+        letter-spacing: 0.2em;
+        font-weight: 600;
+    }
+
+    .preloader .line {
+        width: 0.1em;
+        height: 1.2em;
+        background: var(--preloader-color);
+        margin: 0 0.1em;
+        display: inline-block;
+        animation: opacity 1000ms infinite ease-in-out;
+    }
+
+    .preloader .line-1 {
+        animation-delay: 800ms;
+    }
+
+    .preloader .line-2 {
+        animation-delay: 600ms;
+    }
+
+    .preloader .line-3 {
+        animation-delay: 400ms;
+    }
+
+    .preloader .line-4 {
+        animation-delay: 200ms;
+    }
+
+    .preloader .line-6 {
+        animation-delay: 200ms;
+    }
+
+    .preloader .line-7 {
+        animation-delay: 400ms;
+    }
+
+    .preloader .line-8 {
+        animation-delay: 600ms;
+    }
+
+    .preloader .line-9 {
+        animation-delay: 800ms;
+    }
+
+@keyframes opacity {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

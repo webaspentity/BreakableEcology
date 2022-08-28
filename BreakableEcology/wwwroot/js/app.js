@@ -2,6 +2,7 @@
 
 let lock = false;
 let header;
+const headerId = 'header';
 
 window.scrollLock = () => {
     if (!lock) {
@@ -14,7 +15,7 @@ window.scrollLock = () => {
     }
 }
 
-window.scrollUnlock = ()=> {
+window.scrollUnlock = () => {
     if (lock) {
         let pagePosition = parseInt(document.body.dataset.position, 10);
         document.body.style.position = '';
@@ -28,7 +29,7 @@ window.scrollUnlock = ()=> {
     }
 }
 
-window.debounce = (func, wait, immediate)=> {
+window.debounce = (func, wait, immediate) => {
     let timeout;
 
     return function executedFunction() {
@@ -55,10 +56,26 @@ const runOnResize = debounce(() => {
         header.invokeMethodAsync('ToggleHeaderState');
         header.invokeMethodAsync('Refresh');
     }
-}, 250); 
+}, 250);
+
+const runOnScroll = debounce(() => {
+    if (document.body.clientWidth > 768) {
+        const el = document.getElementById(headerId);
+        if (pageYOffset > el.clientHeight) {
+            document.querySelector('.on-top').classList.add('visible');
+        } else {
+            document.querySelector('.on-top').classList.remove('visible');
+        }
+    }
+}, 250);
 
 window.addEventListener('resize', runOnResize);
+window.addEventListener('scroll', runOnScroll);
 
 window.setHeader = (dotNetHelper) => {
     header = dotNetHelper;
+}
+
+window.scrollOnTop = (id) => {
+    document.getElementById(id).scrollIntoView();
 }

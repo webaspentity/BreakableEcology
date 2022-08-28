@@ -1,0 +1,14 @@
+﻿@page "/catalog"
+
+<Container>
+    <Breadcrumb Path="@breadcrumbs" />
+</Container>
+
+<Section Title="Каталог" Items="AppData.Catalog" Href="/catalog" />
+
+@code {
+    private List<LinkModel> breadcrumbs = new List<LinkModel>() {
+        new() { Url = "/", Text = "Главная" },
+        new() { Url = "/catalog", Text = "Каталог" }
+    };
+}

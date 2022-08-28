@@ -1,5 +1,4 @@
-﻿.footer{
-    
+﻿.footer {
 }
 
 .footer__top {
@@ -14,8 +13,8 @@
         justify-content: center;
     }
 
-        .footer ::deep .donation-form {
-        }
+.footer ::deep .donation-form {
+}
 
 .footer__bottom {
     background-color: #333;
@@ -23,14 +22,14 @@
     padding: 2em 0;
 }
 
-.footer__bottom ::deep .container{
-    min-height: 20em;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    justify-items: center;
-    grid-gap: 4em;
-}
+    .footer__bottom ::deep .container {
+        min-height: 20em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        grid-gap: 4em;
+    }
 
 .footer__links {
     display: grid;
@@ -39,7 +38,7 @@
     grid-column-gap: 4em;
 }
 
-.footer__link{
+.footer__link {
     color: #fff;
     font-size: 1.8em;
     font-weight: 500;
@@ -54,12 +53,12 @@
     /*justify-items: end;*/
 }
 
-.footer__socials img{
-    flex: 0 0 2.5em;
-    height: 2.5em;
-}
+    .footer__socials img {
+        flex: 0 0 2.5em;
+        height: 2.5em;
+    }
 
-.footer__bottom ::deep .telephone{
+.footer__bottom ::deep .telephone {
     /*justify-self: end;*/
 }
 
@@ -67,10 +66,10 @@
     .footer__bottom ::deep .container {
         grid-template-columns: 1fr 1fr;
     }
+
     .footer__bottom ::deep .telephone {
         /*justify-self: center;*/
     }
-
 }
 
 @media only screen and (max-width: 36.5625em) {

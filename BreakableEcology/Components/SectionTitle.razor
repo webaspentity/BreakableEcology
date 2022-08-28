@@ -1,5 +1,6 @@
 ﻿<h2 class="section-title">
-    <span>@ChildContent</span> <a href="@Href">Ещё</a>
+    <span>@ChildContent</span> 
+    @if(ShowMore){<a href="@Href">Ещё</a>}
 </h2>
 
 @code {
@@ -7,4 +8,6 @@
     public RenderFragment? ChildContent { get; set; }
     [Parameter]
     public string Href { get; set; }
+    [Parameter]
+    public bool ShowMore { get; set; }
 }

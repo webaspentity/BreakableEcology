@@ -1,0 +1,48 @@
+﻿<div class="quantity">
+    <label class="quantity__label">Количество:</label>
+    <div class="quantity__counter">
+        <button class="quantity__btn" type="button" aria-label="Уменьшить количество" @onclick="Decrement">-</button>
+        <input type="number" @bind=Value min="0" max="99" @bind:event="oninput"/>
+        <button class="quantity__btn" type="button" aria-label="Увеличить количество" @onclick="Increment">+</button>
+    </div>
+</div>
+
+@code {
+    private int counterValue;
+
+    [Parameter]
+    public int Value 
+    { 
+        get => counterValue;
+        set{
+            if (value >= 0 && value < 100){
+                counterValue = value;
+            }
+        } 
+    }
+
+    [Parameter]
+    public EventCallback<int> ValueChanged { get; set; }
+
+    private async Task Decrement(MouseEventArgs args)
+    {
+        if (args.CtrlKey)
+        {
+            Value = (Value < 10) ? 0 : Value - 10;
+        }
+        else Value--;
+
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private async Task Increment(MouseEventArgs args)
+    {
+        if (args.CtrlKey)
+        {
+            Value = (Value + 10 > 99) ? 99 : Value + 10;
+        }
+        else Value++;
+
+        await ValueChanged.InvokeAsync(Value);
+    }
+}
