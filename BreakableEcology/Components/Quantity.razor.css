@@ -9,11 +9,12 @@
     color: #bdbdbd;
 }
 
-.quantity__counter{
+.quantity__counter {
     display: flex;
     align-items: center;
     column-gap: 0.5em;
-    width: max-content;
+    /*width: max-content;*/
+    box-sizing: border-box;
 }
 
 .quantity__btn {
@@ -30,6 +31,7 @@
     border-radius: 5px;
     background: #fff;
     font-size: 2.4em;
+    user-select: none;
 }
 
     .quantity__btn:hover{
@@ -50,6 +52,7 @@
         max-width: 2em;
         padding: 0 0.25em;
         border-radius: 5px;
+        width: 100%;
     }
 
         .quantity input:focus {

@@ -1,6 +1,8 @@
 ﻿.container {
     max-width: 69.038%;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 @media only screen and (max-width: 82.5em) {

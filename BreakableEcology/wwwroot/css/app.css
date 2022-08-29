@@ -81,6 +81,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    row-gap: 0.7em;
     align-items: center;
     justify-content: center;
     overflow-y: hidden;
@@ -135,6 +136,12 @@ body {
     .preloader .line-9 {
         animation-delay: 800ms;
     }
+
+.object-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5em;
+}
 
 @keyframes opacity {
     0% {

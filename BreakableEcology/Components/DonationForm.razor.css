@@ -96,7 +96,7 @@
 
         .donation-form__send ::deep input:focus {
             outline: none;
-            box-shadow: 4px 8px #333333d5 ;
+            box-shadow: 4px 6px #333333d5 ;
         }
 
         .donation-form__send ::deep input::placeholder {

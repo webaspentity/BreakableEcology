@@ -1,38 +1,55 @@
-﻿<section class="details-section details">
+﻿<section class="details-section">
     <Container>
         <div class="details">
             <div class="details__image">
-                <img src="@Item.Image.Source" alt="@Item.Image.Alt"/>
+                <img src="@Item.Image.Source" alt="@Item.Image.Alt" />
             </div>
+
             <div class="details__content">
                 <h1 class="details__title">@Item.Title</h1>
                 <div class="details__description">
-                    @foreach(string text in Item.Text){
+                    @foreach (string text in Item.Text)
+                    {
                         <p class="details__text">@text</p>
                     }
                 </div>
-                @if (Item.ShowWeights){
+            </div>
+
+            @if (IsProduct)
+            {
+                <div class="details__product">
+
                     <EditForm Model="product">
                         <InputRadioGroup @bind-Value="product.Weight">
                             <div class="details__radio">
-                                <label class=@((product.Weight == 200) ? "details__weight-label checked" : "weight-label")><InputRadio TValue="int" Value="200" aria-hidden="true" />200 г</label>
-                                <label class=@((product.Weight == 400) ? "details__weight-label checked" : "weight-label")><InputRadio TValue="int" Value="400" aria-hidden="true" />400 г</label>
-                                <label class=@((product.Weight == 800) ? "details__weight-label checked" : "weight-label")><InputRadio TValue="int" Value="800" aria-hidden="true" />800 г</label>
-                                <label class=@((product.Weight == 1000) ? "details__weight-label checked" : "weight-label")><InputRadio TValue="int" Value="1000" aria-hidden="true" />1 кг</label>
+                                <label class=@((product.Weight == 200) ? "details__weight-label checked" : "details__weight-label")><InputRadio TValue="int" Value="200" aria-hidden="true" />200 г</label>
+                                <label class=@((product.Weight == 400) ? "details__weight-label checked" : "details__weight-label")><InputRadio TValue="int" Value="400" aria-hidden="true" />400 г</label>
+                                <label class=@((product.Weight == 800) ? "details__weight-label checked" : "details__weight-label")><InputRadio TValue="int" Value="800" aria-hidden="true" />800 г</label>
+                                <label class=@((product.Weight == 1000) ? "details__weight-label checked" : "details__weight-label")><InputRadio TValue="int" Value="1000" aria-hidden="true" />1 кг</label>
                             </div>
                         </InputRadioGroup>
                     </EditForm>
-                }
-                @if(IsProduct){
-                    <div class="details__price">@product.Price</div>
-                    <Quantity @bind-Value="product.Quantity"/>
+
+                    <div class="details__price">@product.Price руб.</div>
+
+                    <Quantity @bind-Value="product.Quantity" />
+
                     <div class="details__controls">
                         <a class="details__link" href="/buy">Купить</a>
                         <button class="details__btn" type="button" aria-label="Добавить в корзину">Добавить в корзину</button>
                     </div>
-                }
-            </div>
+
+                </div>
+            }
+
         </div>
+    </Container>
+</section>
+
+<section class="slides">
+    <Container>
+        <Carousel Items="AppData.BirdsSlides" />
+        <Carousel Items="AppData.GrainsSlides" />
     </Container>
 </section>
 
@@ -47,8 +64,9 @@
 
     protected override void OnInitialized()
     {
-        if(IsProduct){
-            product = new() { Price = Item.Price, Name = Item.Title };
+        if (IsProduct)
+        {
+            product = new() { Price = Item.Price, Name = Item.Title, Weight = 200 };
         }
         Item.Text = new[] { "Дополнительный пюреобразный пигментирующий корм, для птенцов с красным оперением.", "Отлично подходит для увеличения поступления питательных веществ на особенных этапах жизни зерноядных птиц (при линьке и размножении), а также в периоды, когда животное испытывает стресс." };
     }

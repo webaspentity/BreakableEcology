@@ -1,7 +1,23 @@
 ﻿@page "/catalog/mixes/mix"
 
-<DetailSection Item="AppData.MixesList[0]" IsProduct=true />
+<PageTitle>Padovan Ovomix Gold Rosso</PageTitle>
+
+<Container>
+    <Breadcrumb Path="@breadcrumbs" />
+</Container>
+
+<div class="object-container">
+    <DetailSection Item="AppData.ProductDetails" IsProduct=true />
+
+    <Section Is4Section=true Title="С этим товаром смотрят" Items="AppData.ProductTheyLook" />
+
+    <Section Is4Section=true Title="С этим товаром покупают" Items="AppData.ProductTheyBuy" />
+</div>
 
 @code{
-
+    private List<LinkModel> breadcrumbs = new List<LinkModel>() {
+        new() { Url = "/catalog", Text = "Каталог" },
+        new() { Url = "/catalog/mixes", Text = "Готовые миксы" },
+        new() { Url = "/catalog/mixes/mix", Text = "PADOVAN OVOMIX GOLD ROSSO"}
+    };
 }

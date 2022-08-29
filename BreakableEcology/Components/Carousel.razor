@@ -1,0 +1,94 @@
+﻿<div class="carousel">
+    <h2 class="carousel__title">Виды птиц, для которых подойдет данный товар</h2>
+
+    <button class="carousel__arrow carousel__arrow_left"
+            type="button"
+            aria-label="Предыдущий слайд" @onclick="LeftArrowClick">
+        &#8249;
+    </button>
+
+    <div class="carousel__container">
+
+        <div class="carousel__items"
+             style="transform:translate3d(@(translate)%,0,0);"
+             @ontouchstart="OnTouchStartHandler"
+             @ontouchend="OnTouchEndHandler">
+
+            @for (int i = 0; i < slides; i++)
+            {
+                <div class="carousel__item">
+                    @foreach (SlideModel slide in Items.Skip(i * 4).Take(4))
+                    {
+                        <figure class="slide">
+                            <a href="@slide.Link.Url"><img src="@slide.Image.Source" alt="@slide.Image.Alt" class="slide__image" /></a>
+                            <figcaption class="slide__caption">@slide.Title</figcaption>
+                        </figure>
+                    }
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+    <button class="carousel__arrow carousel__arrow_right"
+            type="button"
+            aria-label="Следующий слайд" @onclick="RightArrowClick">
+        &#8250;
+    </button>
+
+</div>
+
+@code {
+    private int translate = 0;
+    private int slides = 0;
+    private int counter = 0;
+    private double touchStart;
+    private double touchEnd;
+
+    [Parameter]
+    public List<SlideModel> Items { get; set; }
+
+    private void LeftArrowClick()
+    {
+        if (counter > 0)
+        {
+            translate += 25;
+            counter--;
+        }
+    }
+
+    private void RightArrowClick()
+    {
+        if (counter < Items.Count - 1)
+        {
+            translate -= 25;
+            counter++;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        slides = (Items.Count % 4 == 0) ? Items.Count / 4 : (int)(Items.Count / 4) + 1;
+    }
+
+    private void OnTouchStartHandler(TouchEventArgs t)
+    {
+        touchStart = t.Touches[0].ClientX;
+    }
+
+    private void OnTouchEndHandler(TouchEventArgs t)
+    {
+        touchEnd = t.ChangedTouches[0].ClientX;
+
+        if ((touchStart - touchEnd) > 0 && Math.Abs(touchStart - touchEnd) > 150)
+        {
+            RightArrowClick();
+        }
+        else if ((touchStart - touchEnd) < 0 && Math.Abs(touchStart - touchEnd) > 150)
+        {
+            LeftArrowClick();
+        }
+    }
+}
