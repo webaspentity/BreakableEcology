@@ -4,8 +4,13 @@
         @foreach (LinkModel link in AppData.DropDownOptions)
         {
             <li class="dropdown__item">
-                <a class="dropdown__link" href="@link.Url">@link.Text</a>
+                <a class="dropdown__link" href="@link.Url" @onclick="DropdownLinkClick">@link.Text</a>
             </li>
         }
     </ul>
 </div>
+
+@code{
+    [Parameter]
+    public EventCallback DropdownLinkClick { get; set; }
+}

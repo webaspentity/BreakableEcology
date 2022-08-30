@@ -1,12 +1,29 @@
-﻿<div class="account">
+﻿@inject NavigationManager nav
+
+<div class="account">
     <button class="account__cart" type="button" aria-label="Корзина">
-        <img src="images/icons/cart.svg" alt="Корзина"/>
+        <img src="images/icons/cart.svg" alt="Корзина" />
+        @if (AppData.Authorized)
+        {
+            <span class="counter">@AppData.Cart.Products?.Count</span>
+        }
     </button>
-    <button class="account__profile" type="button" aria-label="Профиль">
-        <img src="images/icons/account.svg" alt="Профиль" />
-    </button>
+
+    @if (AppData.Authorized)
+    {
+        <button class="account__profile" type="button" aria-label="Профиль" >
+            <img src="images/icons/account_active.svg" alt="Профиль" />
+        </button>
+    }
+    else
+    {
+        <button class="account__link" role="link" @onclick="Navigate" aria-label="Вход в аккаунт"label><img src="images/icons/account.svg" alt="Профиль" /></button>
+    }
+
 </div>
 
 @code {
-
+    private void Navigate(){
+        nav.NavigateTo("/login");
+    }
 }

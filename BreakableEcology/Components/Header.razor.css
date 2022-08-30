@@ -17,9 +17,9 @@
             'menu menu search search';
     }
 
-    .header ::deep .logo {
-        grid-area: logo;
-    }
+        .header ::deep .logo {
+            grid-area: logo;
+        }
 
     .header ::deep .telephone {
         grid-area: telephone;
@@ -145,4 +145,13 @@
                 transform: scale(1);
                 opacity: 1;
             }
+}
+
+@keyframes showHeader {
+    from{
+        transform: translate3d(0,-200vh, 0);
+    }
+    to {
+        transform: translate3d(0,0, 0);
+    }
 }

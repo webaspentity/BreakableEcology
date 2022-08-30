@@ -79,3 +79,11 @@ window.setHeader = (dotNetHelper) => {
 window.scrollOnTop = (id) => {
     document.getElementById(id).scrollIntoView();
 }
+
+window.openDialog = (element) => {
+    element.showModal();
+}
+
+window.closeDialog = (element) => {
+    element.close();
+}

@@ -4,6 +4,9 @@ namespace BreakableEcology.Shared;
 
 public static class AppData
 {
+    public static bool Authorized { get; set; } = false;
+    public static CartModel Cart { get; set; } = new() { Products = new() { } };
+
     public static List<LinkModel> DropDownOptions { get; set; } = new()
     {
         new() {Text = "Кормушки", Url = "/catalog/feeders"},

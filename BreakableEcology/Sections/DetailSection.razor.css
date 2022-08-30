@@ -142,16 +142,16 @@
     padding: 5em 0;
 }*/
 
-    .slides ::deep .container {
-        display: flex;
-        column-gap: 2em;
-        row-gap: 2em;
-        justify-content: center;
-    }
+.slides ::deep .container {
+    display: flex;
+    column-gap: 2em;
+    row-gap: 2em;
+    justify-content: center;
+}
 
-    .slides ::deep .carousel {
-        flex: 1 1 50%;
-    }
+.slides ::deep .carousel {
+    flex: 1 1 50%;
+}
 
 @media only screen and (max-width: 103.125em) {
     .slides ::deep .container {

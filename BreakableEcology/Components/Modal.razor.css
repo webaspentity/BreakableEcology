@@ -1,0 +1,51 @@
+﻿.dialog {
+    padding: 0;
+    border-radius: 10px;
+    border: none;
+}
+
+    .dialog::backdrop {
+        background: rgba(3, 128, 31, 0.4);
+    }
+
+    .dialog::-webkit-scrollbar {
+        width: 0.4em;
+        transition: 1s;
+    }
+
+    .dialog::-webkit-scrollbar-track {
+        background-color: #f9f9f9;
+        border-radius: 15px;
+    }
+
+    .dialog::-webkit-scrollbar-thumb {
+        background-color: seagreen;
+        border-radius: 15px;
+        border: 0.1em solid #f9f9f9;
+    }
+
+    .dialog__body {
+        background-color: seagreen;
+        padding: 4em 2em;
+        position: relative;
+    }
+
+.button__close {
+    font-size: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: 1.6666666em;
+    height: 1.6666666em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.button__close:hover{
+    cursor: pointer;
+}

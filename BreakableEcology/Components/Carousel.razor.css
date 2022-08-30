@@ -82,18 +82,18 @@
     transition: .4s ease;
 }
 
-    .slide__image:hover{
+    .slide__image:hover {
         transform: scale(1.05);
     }
 
-    .slide__caption {
-        font-size: 1.8em;
-        color: #828282;
-    }
+.slide__caption {
+    font-size: 1.8em;
+    color: #828282;
+}
 
 /*СЛАЙД END==================================*/
 
-@media only screen and (max-width: 36.25em){
+@media only screen and (max-width: 36.25em) {
     .carousel__items {
         width: 200%;
     }

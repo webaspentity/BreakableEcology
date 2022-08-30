@@ -1,5 +1,6 @@
 ﻿.donation-form {
     max-width: 50%;
+    margin: 0 auto;
 }
 
 .donation-form__fieldset {
@@ -35,6 +36,7 @@
 .donation-form__label {
     font-size: 1.8em;
     position: relative;
+    color: #fff;
 }
 
     .donation-form__label:hover {
@@ -96,7 +98,8 @@
 
         .donation-form__send ::deep input:focus {
             outline: none;
-            box-shadow: 4px 6px #333333d5 ;
+            box-shadow: 4px 6px #333333d5;
+            transform: translate3d(-0.1em,-0.1em,0);
         }
 
         .donation-form__send ::deep input::placeholder {

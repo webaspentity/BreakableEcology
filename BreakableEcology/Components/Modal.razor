@@ -1,0 +1,28 @@
+﻿@inject IJSRuntime js
+
+<dialog class="dialog" @ref=dialog @onclick="Close">
+    <div class="dialog__body" @onclick:stopPropagation>
+        @ChildContent
+        <button class="button__close" type="button" @onclick="Close">
+            &#128473;
+        </button>
+    </div>
+</dialog>
+
+@code {
+    private ElementReference dialog;
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    public async Task Open(){
+        await js.InvokeVoidAsync("openDialog", dialog);
+        await js.InvokeVoidAsync("scrollLock");
+    }
+
+    public async Task Close()
+    {
+        await js.InvokeVoidAsync("closeDialog", dialog);
+        await js.InvokeVoidAsync("scrollUnlock");
+    }
+}
