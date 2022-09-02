@@ -4,7 +4,6 @@ namespace BreakableEcology.Shared;
 
 public static class AppData
 {
-    public static bool Authorized { get; set; } = false;
     public static CartModel Cart { get; set; } = new() { Products = new() { } };
 
     public static List<LinkModel> DropDownOptions { get; set; } = new()
@@ -333,6 +332,62 @@ public static class AppData
             "Пшеница представляет собой однолетнее растение, способное вырастать до полутораметровой высоты. Заросли при этом всегда прямые и плотные, поскольку стебель растения практически идеально прямой и не имеет ответвлений. Однако, от стебля отходят тонкие, неширокие (до двух сантиметров) и длинные листья, благодаря чему заросли этого растения выглядят очень густыми. На вершине стебля располагается колосок, в котором находятся зёрна.",
             "Пшеница окрашена в зелёный цвет, но постепенно меняет его на золотистый.В момент сбора урожая пшеничные поля сплошь окрашены в золотистый цвет.",
             "Зерна пшеницы, находящиеся в колоске, защищены чешуйками и волосками. Благодаря чему не осыпаются на землю. Но спелые зёрна легко покидают своё укрытие, стоит лишь хорошенько ударить по колоску. На этом принципе и основываются методы сбора данного вида урожая."
+        }
+    };
+
+    public static List<CartProductModel> Orders { get; set; } = new()
+    {
+        new(){
+            Article = "Т00001632",
+            Image = new(){Source = "images/fiory_feed.jpg", Alt = "Товар"},
+            Name = "Корм для птиц FIORY Смесь для попугаев  400г",
+            Quantity = 5, Total = 228, Sent = true
+        },
+        new(){
+            Article = "Т00001632",
+            Image = new(){Source = "images/fiory_feed.jpg", Alt = "Товар"},
+            Name = "Корм для птиц FIORY Смесь для попугаев  400г",
+            Quantity = 5, Total = 228, Sent = false
+        },
+        new(){
+            Article = "Т00001632",
+            Image = new(){Source = "images/fiory_feed.jpg", Alt = "Товар"},
+            Name = "Корм для птиц FIORY Смесь для попугаев  400г",
+            Quantity = 5, Total = 228, Sent = false
+        },
+        new(){
+            Article = "Т00001632",
+            Image = new(){Source = "images/fiory_feed.jpg", Alt = "Товар"},
+            Name = "Корм для птиц FIORY Смесь для попугаев  400г",
+            Quantity = 5, Total = 228, Sent = false
+        }
+    };
+
+    public static List<CartProductModel> CartProducts { get; set; } = new()
+    {
+        new(){
+            Article = "Т00001632",
+            Image = new(){Source = "images/fiory_feed.jpg", Alt = "Товар"},
+            Name = "Корм для птиц FIORY Смесь для попугаев  400г",
+            Quantity = 1, Total = 228, Sent = false, Price = 228
+        },
+        new(){
+            Article = "Т00001632",
+            Image = new(){Source = "images/fiory_feed.jpg", Alt = "Товар"},
+            Name = "Корм для птиц FIORY Смесь для попугаев  400г",
+            Quantity = 1, Total = 228, Sent = false, Price = 228
+        },
+        new(){
+            Article = "Т00001632",
+            Image = new(){Source = "images/fiory_feed.jpg", Alt = "Товар"},
+            Name = "Корм для птиц FIORY Смесь для попугаев  400г",
+            Quantity = 1, Total = 228, Sent = false, Price = 228
+        },
+        new(){
+            Article = "Т00001632",
+            Image = new(){Source = "images/fiory_feed.jpg", Alt = "Товар"},
+            Name = "Корм для птиц FIORY Смесь для попугаев  400г",
+            Quantity = 1, Total = 228, Sent = false, Price = 228
         }
     };
 }

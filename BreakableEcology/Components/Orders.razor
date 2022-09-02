@@ -1,0 +1,52 @@
+﻿<table class="products">
+    @if (Items is not null)
+    {
+        foreach (CartProductModel model in Items)
+        {
+            <tr class="product">
+                <td class="product__image">
+                    <img src="@model.Image?.Source" alt="@model.Image?.Alt" />
+                </td>
+                @if(Cart){
+                    <td class="product__body">
+                        <h5 class="product__title">@model.Name</h5>
+                        <p class="product__article">Артикул @model.Article</p>
+                        <p class="product__cost">Цена за 1 шт: @model.Price руб.</p>
+                        
+                    </td>
+                } else{
+                    <td class="product__body">
+                        <h5 class="product__title">@model.Name</h5>
+                        <p class="product__article">Артикул @model.Article</p>
+                        <p class="product__quantity">@model.Quantity шт.</p>
+                        <p class="product__total"><span>Итого:</span> @model.Total руб.</p>
+                    </td>
+                }
+                
+                @if(Cart){
+                    <td class="product__status">
+                        <Quantity @bind-Value="@model.Quantity" />
+                        <p class="product__total"><span>Итого:</span> @(model.Price * model.Quantity) руб.</p>
+                    </td>
+                }else{
+                    <td class="product__status">
+                        <span>Статус:</span>
+                        <p class=@((model.Sent) ? "sent" : "cancelled")>@((model.Sent) ? "Отправлено" : "Отменено")</p>
+                    </td>
+                }
+                
+            </tr>
+        }
+    }
+</table>
+
+@code {
+    [Parameter]
+    public List<CartProductModel>? Items { get; set; }
+    [Parameter]
+    public bool Cart { get; set; } = false;
+
+    private void OnValueChanged(){
+
+    }
+}

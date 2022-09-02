@@ -10,6 +10,7 @@ window.scrollLock = () => {
         document.body.style.position = 'fixed';
         document.body.dataset.position = pagePosition;
         document.body.style.top = - pagePosition + 'px';
+        //document.body.style.marginRight = '0.8em';
         document.documentElement.style.scrollBehavior = 'auto';
         lock = true;
     }
@@ -20,6 +21,7 @@ window.scrollUnlock = () => {
         let pagePosition = parseInt(document.body.dataset.position, 10);
         document.body.style.position = '';
         document.body.style.top = '';
+        document.body.style.marginRight = 'unset';
         window.scrollTo({
             top: pagePosition,
             behavior: "auto"
@@ -86,4 +88,12 @@ window.openDialog = (element) => {
 
 window.closeDialog = (element) => {
     element.close();
+}
+
+window.setPasswordFocus = () => {
+    document.getElementById('inputPassword').focus();
+}
+
+window.setTelephoneFocus = () => {
+    document.getElementById('inputTelephone').focus();
 }

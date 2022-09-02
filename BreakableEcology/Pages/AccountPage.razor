@@ -1,0 +1,21 @@
+﻿@page "/account"
+
+<Container><Breadcrumb Path=null /></Container>
+
+<Container>
+    <div class="account-sections">
+        <section class="profile-section">
+            <h4>Аккаунт</h4>
+            <Profile />
+        </section>
+        <section class="orders-section">
+            <h4>Все заказы</h4>
+            <Orders Items="AppData.Orders" />
+        </section>
+    </div>
+</Container>
+
+
+@code {
+
+}

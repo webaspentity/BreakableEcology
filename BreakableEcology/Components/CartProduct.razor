@@ -1,0 +1,18 @@
+﻿<div class="cart-product">
+    <img class="cart-product__image" src="@Item.Image.Source" alt="@Item.Image.Alt">
+    <div class="cart-product__body">
+        <h5 class="cart-product__title">@Item.Name</h5>
+        <p class="cart-product__article">Артикул @Item.Article</p>
+        <p class="cart-product__quantity">@Item.Quantity шт.</p>
+        <p class="cart-product__total">Итого: @Item.Total руб.</p>
+    </div>
+    <div class="cart-product__status">
+        <span>Статус:</span>
+        <p class=@((Item.Sent) ? "sent" : "cancelled")>@((Item.Sent) ? "Отправлено" : "Отменено")</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public CartProductModel? Item { get; set; }
+}

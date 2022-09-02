@@ -1,29 +1,61 @@
 ﻿@inject NavigationManager nav
 
 <div class="account">
-    <button class="account__cart" type="button" aria-label="Корзина">
+    <button class="account__cart" type="button" aria-label="Корзина" @onclick="GoToCart">
         <img src="images/icons/cart.svg" alt="Корзина" />
-        @if (AppData.Authorized)
+        @if (AuthorizationState.Authorized)
         {
-            <span class="counter">@AppData.Cart.Products?.Count</span>
+            <span class="counter">@AppData.CartProducts.Count</span>
         }
     </button>
 
-    @if (AppData.Authorized)
+    @if (AuthorizationState.Authorized)
     {
-        <button class="account__profile" type="button" aria-label="Профиль" >
+        <button class="account__profile" type="button" aria-label="Профиль" role="link" @onclick="GoToAccount">
             <img src="images/icons/account_active.svg" alt="Профиль" />
         </button>
     }
     else
     {
-        <button class="account__link" role="link" @onclick="Navigate" aria-label="Вход в аккаунт"label><img src="images/icons/account.svg" alt="Профиль" /></button>
+        <button class="account__link" role="link" @onclick="OpenModal" aria-label="Вход в аккаунт" label><img src="images/icons/account.svg" alt="Профиль" /></button>
     }
 
 </div>
 
+<Modal @ref=modal>
+    <Form Registration=@registration OnValid="OnValid" />
+</Modal>
+
 @code {
-    private void Navigate(){
-        nav.NavigateTo("/login");
+    private bool registration = false;
+    private Modal? modal;
+
+    [CascadingParameter]
+    public AuthorizationState AuthorizationState { get; set; } = default!;
+
+    private void OpenModal(){
+        modal?.Open();
+    }
+
+    private void Close(){
+        modal?.Close();
+    }
+
+    private void GoToAccount(){
+        if (AuthorizationState.Authorized)
+        {
+            nav.NavigateTo("/account");
+        }
+    }
+
+    private void OnValid(){
+        modal?.Close();
+    }
+
+    private void GoToCart(){
+        if (AuthorizationState.Authorized)
+        {
+            nav.NavigateTo("/cart");
+        }
     }
 }

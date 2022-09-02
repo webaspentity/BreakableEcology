@@ -24,28 +24,32 @@
         border: 0.1em solid #f9f9f9;
     }
 
-    .dialog__body {
-        background-color: seagreen;
-        padding: 4em 2em;
-        position: relative;
-    }
+.dialog__body {
+    background-color: #fff;
+    padding: 4em 2em;
+    position: relative;
+}
 
 .button__close {
     font-size: 2.4em;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    width: 1.6666666em;
-    height: 1.6666666em;
+    color: #3ecf5e;
+    width: 1.6em;
+    height: 1.6em;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0.1em;
+    right: 0.1em;
     border: none;
     background: transparent;
     padding: 0;
+    border-radius: 50%;
+    transition: .4s ease;
 }
 
-.button__close:hover{
-    cursor: pointer;
-}
+    .button__close:hover {
+        cursor: pointer;
+        background-color: #3ecf5e;
+        color: #fff;
+    }

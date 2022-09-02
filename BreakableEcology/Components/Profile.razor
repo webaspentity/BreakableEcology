@@ -1,0 +1,32 @@
+﻿<article class="profile">
+    <div class="profile__content">
+        <button class="profile__edit" type="button" aria-label="Редактировать"></button>
+        <div class="profile__image">
+            <img src="@model.Image.Source" alt="@model.Image.Alt" />
+        </div>
+        <address class="profile__data">
+            <p class="profile__name">@model.Name</p>
+            <p class="profile__telephone">@model.Telephone</p>
+            <p class="profile__email">@model.Email</p>
+        </address>
+        <div class="profile__address">
+            <span>Адрес:</span>
+            <address>
+                <p>@model.Address,</p>
+                <p>Индекс: @model.Index</p>
+            </address>
+        </div>
+    </div>
+</article>
+
+@code {
+    private ProfileModel model = new()
+        {
+            Image = new() { Source = "images/avatar.png", Alt = "Аватар" },
+            Name = "Николаев Николай Николаевич",
+            Telephone = "+7 (777) 777-77-77",
+            Email = "taidj-23003@yandex.ru",
+            Address = "Россия, г. Москва, ул. Ленина, д. 50, кв. 2",
+            Index = 398290
+        };
+}

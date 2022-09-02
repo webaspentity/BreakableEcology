@@ -1,0 +1,81 @@
+﻿@inject NavigationManager nav
+@inject IJSRuntime js
+
+<EditForm class="form" Model="model" method="post" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
+    <DataAnnotationsValidator />
+
+    <fieldset class="form__fieldset">
+        <legend class="form__legend">@_title</legend>
+
+        <div class="form__element form__element_telephone">
+            <InputMask name="telephone" @bind-Value="@model.Telephone" data-mask="+7 (000) 000-00-00" class="form__input" id="inputTelephone" />
+            <label class=@((String.IsNullOrEmpty(model.Telephone)) ? "form__label": "form__label active") for="telephone" @onclick="OnTelephoneClick">Телефон</label>
+            <div class="form__error">
+                <ValidationMessage For="@(() => model.Telephone)" />
+            </div>
+        </div>
+
+        <div class="form__element form__element_password">
+            <InputText @bind-Value="@model.Password" class="form__input" type="password" id="inputPassword" />
+            <label class=@((String.IsNullOrEmpty(model.Password)) ? "form__label" : "form__label active") @onclick="OnPasswordClick">Пароль</label>
+            <div class="form__error">
+                <ValidationMessage For="@(() => model.Password)" />
+            </div>
+        </div>
+
+        <button type="button" role="link" aria-label="Зарегистрироваться" class="form__link" @onclick="LeftControlClick">@_leftControl</button>
+        <button type="submit" aria-label="Войти в аккаунт" class="form__button">@_rightControl</button>
+    </fieldset>
+
+</EditForm>
+
+@code {
+    private string labelDefaultClass = "form__label";
+    private string labelActiveClass = "form__label active";
+    private UserModel model = new();
+    private string _title;
+    private string _leftControl;
+    private string _rightControl;
+
+    [Parameter]
+    public bool Registration { get; set; }
+    [Parameter]
+    public EventCallback OnValid { get; set; }
+    [CascadingParameter]
+    public AuthorizationState AuthorizationState { get; set; }
+
+    private async Task OnValidSubmit() { 
+        AuthorizationState.Authorized = true;
+        await OnValid.InvokeAsync();
+    }
+
+    private void OnInvalidSubmit() { }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ConfigureForm();
+    }
+
+    private void LeftControlClick(){
+        Registration = !Registration;
+        ConfigureForm();
+    }
+
+    private void ConfigureForm(){
+        _title = (Registration) ? "Регистрация" : "Вход в аккаунт";
+        _leftControl = (Registration) ? "Войти в аккаунт" : "Зарегистрироваться";
+        _rightControl = (Registration) ? "Зарегистрироваться" : "Войти в аккаунт";
+    }
+
+    private async Task OnPasswordClick()
+    {
+        await js.InvokeVoidAsync("setPasswordFocus");
+    }
+
+    private async Task OnTelephoneClick()
+    {
+        await js.InvokeVoidAsync("setTelephoneFocus");
+    }
+
+}

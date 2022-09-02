@@ -1,0 +1,41 @@
+﻿.delivery-section__title {
+    margin: 0;
+    font-size: 2.4em;
+    color: #333;
+    font-weight: 600;
+}
+
+    .delivery-section__title:not(:last-child) {
+        margin-bottom: 2.5em;
+    }
+
+.delivery-section__partition{
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+.delivery-section__partition h2{
+    margin: 0;
+}
+
+    .delivery-section__partition p, .delivery-section ul {
+        font-size: 1.5em;
+        margin: 0;
+    }
+
+.delivery-section__content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 4em;
+}
+
+.delivery-section ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.delivery-section li{
+    line-height: 1.4;
+}

@@ -2,7 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-public class LoginModel
+public class UserModel
 {
     [Required(ErrorMessage = "Поле обязательно для заполнения")]
     public string? Telephone { get; set; }

@@ -2,5 +2,5 @@
 
 public enum ThemeType
 {
-    Light, Dark, Grey
+    Light, Dark, Grey, Green
 }
