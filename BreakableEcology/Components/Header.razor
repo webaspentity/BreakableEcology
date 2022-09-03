@@ -4,9 +4,9 @@
     <Container>
         <Logo Title="Breakably Ecology" />
         <Burger OnClick="ToggleHeaderState" @ref=burger />
-        <Account />
+        <Account OnAccountElementClick="OnMenuLinkClick" />
         <Search />
-        <Menu DropdownLinkClick="ToggleHeaderState"/>
+        <Menu MenuLinkClick="OnMenuLinkClick" />
         <Telephone Theme="ThemeType.Dark" />
     </Container>
 </header>
@@ -22,6 +22,13 @@
 
     #region Methods
 
+    private void OnMenuLinkClick()
+    {
+        if (burger.Active){
+            ToggleHeaderState();
+        }
+    }
+
     [JSInvokable]
     public void ToggleHeaderState()
     {
@@ -30,7 +37,8 @@
     }
 
     [JSInvokable]
-    public void Refresh(){
+    public void Refresh()
+    {
         StateHasChanged();
     }
 

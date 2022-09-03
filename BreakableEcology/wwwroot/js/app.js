@@ -3,6 +3,7 @@
 let lock = false;
 let header;
 const headerId = 'header';
+let scroll = false; 
 
 window.scrollLock = () => {
     if (!lock) {
@@ -10,18 +11,24 @@ window.scrollLock = () => {
         document.body.style.position = 'fixed';
         document.body.dataset.position = pagePosition;
         document.body.style.top = - pagePosition + 'px';
-        document.body.style.width = 'calc(100% - 0.8em)';
+        if (document.body.offsetHeight > window.innerHeight) {
+            scroll = true;
+        }
+        if (scroll ) document.body.style.width = 'calc(100% - 0.8em)';
         document.documentElement.style.scrollBehavior = 'auto';
         lock = true;
     }
 }
 
 window.scrollUnlock = () => {
-    if (lock) {
+    if (lock && !document.getElementById('burger').classList.contains('active')) {
         let pagePosition = parseInt(document.body.dataset.position, 10);
         document.body.style.position = '';
         document.body.style.top = '';
-        document.body.style.width = 'unset';
+        if (scroll) {
+            document.body.style.width = 'unset';
+            scroll = false;
+        }
         window.scrollTo({
             top: pagePosition,
             behavior: "auto"

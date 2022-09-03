@@ -1,12 +1,12 @@
 ﻿<nav class="menu">
     <ul class="menu__items">
-        <li class="menu__item menu__dropdown">
-            <DropDown DropdownLinkClick="DropdownLinkClick"/>
+        <li class="menu__dropdown">
+            <DropDown DropdownLinkClick="MenuLinkClick" />
         </li>
         @foreach (LinkModel link in AppData.MenuLinks)
         {
             <li class="menu__item" tabindex="0">
-                <NavLink class="menu__link" href="@link.Url">@link.Text</NavLink>
+                <NavLink class="menu__link" href="@link.Url" @onclick="MenuLinkClick">@link.Text</NavLink>
             </li>
         }
     </ul>
@@ -14,5 +14,5 @@
 
 @code{
     [Parameter]
-    public EventCallback DropdownLinkClick { get; set; }
+    public EventCallback MenuLinkClick { get; set; }
 }

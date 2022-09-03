@@ -1,4 +1,5 @@
 ﻿@inject NavigationManager nav
+@inject IJSRuntime js
 
 <div class="account">
     <button class="account__cart" type="button" aria-label="Корзина" @onclick="GoToCart">
@@ -33,6 +34,9 @@
     [CascadingParameter]
     public AuthorizationState AuthorizationState { get; set; } = default!;
 
+    [Parameter]
+    public EventCallback OnAccountElementClick { get; set; }
+
     private void OpenModal(){
         modal?.Open();
     }
@@ -41,21 +45,25 @@
         modal?.Close();
     }
 
-    private void GoToAccount(){
+    private async Task GoToAccount(){
         if (AuthorizationState.Authorized)
         {
             nav.NavigateTo("/account");
         }
+
+        await OnAccountElementClick.InvokeAsync();
     }
 
     private void OnValid(){
         modal?.Close();
     }
 
-    private void GoToCart(){
+    private async Task GoToCart(){
         if (AuthorizationState.Authorized)
         {
             nav.NavigateTo("/cart");
         }
+
+        await OnAccountElementClick.InvokeAsync();
     }
 }
