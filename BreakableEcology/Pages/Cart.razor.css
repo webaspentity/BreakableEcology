@@ -11,8 +11,12 @@
         color: #828282;
     }
 
-    @media only screen and (max-width: 48em){
-        .cart-section ::deep .product {
+.cart-section ::deep .product__status {
+    flex: 0 0 auto;
+}
+
+@media only screen and (max-width: 48em) {
+    .cart-section ::deep .product {
             flex-direction: column;
             align-items: center;
             row-gap: 2em;

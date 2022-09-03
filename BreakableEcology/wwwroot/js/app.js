@@ -10,7 +10,7 @@ window.scrollLock = () => {
         document.body.style.position = 'fixed';
         document.body.dataset.position = pagePosition;
         document.body.style.top = - pagePosition + 'px';
-        //document.body.style.marginRight = '0.8em';
+        document.body.style.width = 'calc(100% - 0.8em)';
         document.documentElement.style.scrollBehavior = 'auto';
         lock = true;
     }
@@ -21,7 +21,7 @@ window.scrollUnlock = () => {
         let pagePosition = parseInt(document.body.dataset.position, 10);
         document.body.style.position = '';
         document.body.style.top = '';
-        document.body.style.marginRight = 'unset';
+        document.body.style.width = 'unset';
         window.scrollTo({
             top: pagePosition,
             behavior: "auto"
@@ -96,4 +96,20 @@ window.setPasswordFocus = () => {
 
 window.setTelephoneFocus = () => {
     document.getElementById('inputTelephone').focus();
+}
+
+window.setNameFocus = () => {
+    document.getElementById('edit-name').focus();
+}
+
+window.setEditTelFocus = () => {
+    document.getElementById('edit-tel').focus();
+}
+
+window.setEditPassFocus = () => {
+    document.getElementById('edit-pass').focus();
+}
+
+window.setAddressFocus = () => {
+    document.getElementById('edit-address').focus();
 }

@@ -1,7 +1,7 @@
 ﻿@inject IJSRuntime js
 
-<dialog class="dialog" @ref=dialog @onclick="Close">
-    <div class="dialog__body" @onclick:stopPropagation>
+<dialog class="dialog" @ref=dialog @onmousedown="Close">
+    <div class="dialog__body" @onmousedown:stopPropagation>
         @ChildContent
         <button class="button__close" type="button" @onclick="Close">
             &#10006;

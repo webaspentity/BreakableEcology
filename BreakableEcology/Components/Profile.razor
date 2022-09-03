@@ -1,8 +1,10 @@
-﻿<article class="profile">
+﻿@inject IJSRuntime js
+
+<article class="profile">
     <div class="profile__content">
-        <button class="profile__edit" type="button" aria-label="Редактировать"></button>
+        <button class="profile__edit" type="button" aria-label="Редактировать" @onclick="Edit"></button>
         <div class="profile__image">
-            <img src="@model.Image.Source" alt="@model.Image.Alt" />
+            <img src="@model.Image?.Source" alt="@model.Image?.Alt" />
         </div>
         <address class="profile__data">
             <p class="profile__name">@model.Name</p>
@@ -19,14 +21,88 @@
     </div>
 </article>
 
+<Modal @ref="modal">
+    <EditForm class="form" Model="model" method="post" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
+        <DataAnnotationsValidator />
+
+        <fieldset class="form__fieldset">
+            <legend class="form__legend">Редактирование аккаунта</legend>
+
+            <div class="form__element form__element_name">
+                <InputText @bind-Value="@model.Name" class="form__input" id="edit-name"/>
+                <label class=@((String.IsNullOrEmpty(model.Name)) ? "form__label": "form__label active") @onclick="OnNameClick">ФИО</label>
+                <div class="form__error">
+                    <ValidationMessage For="@(() => model.Telephone)" />
+                </div>
+            </div>
+
+            <div class="form__element form__element_telephone">
+                <InputMask name="telephone" @bind-Value="@model.Telephone" data-mask="+7 (000) 000-00-00" class="form__input" id="edit-tel" />
+                <label class=@((String.IsNullOrEmpty(model.Telephone)) ? "form__label": "form__label active") for="telephone" @onclick="OnTelephoneClick">Телефон</label>
+                <div class="form__error">
+                    <ValidationMessage For="@(() => model.Telephone)" />
+                </div>
+            </div>
+
+            <div class="form__element form__element_password">
+                <InputText @bind-Value="@model.Password" class="form__input" type="password" id="edit-pass"/>
+                <label class=@((String.IsNullOrEmpty(model.Password)) ? "form__label" : "form__label active") @onclick="OnPasswordClick">Пароль</label>
+                <div class="form__error">
+                    <ValidationMessage For="@(() => model.Password)" />
+                </div>
+            </div>
+
+            <div class="form__element form__element_address">
+                <InputText @bind-Value="@model.Address" class="form__input" id="edit-address" />
+                <label class=@((String.IsNullOrEmpty(model.Address)) ? "form__label" : "form__label active") @onclick="OnAddressClick">Адрес</label>
+                <div class="form__error">
+                    <ValidationMessage For="@(() => model.Address)" />
+                </div>
+            </div>
+
+            <button type="submit" aria-label="Сохранить" class="form__button">Сохранить</button>
+        </fieldset>
+
+    </EditForm>
+</Modal>
+
 @code {
+    private Modal? modal;
+
     private ProfileModel model = new()
-        {
-            Image = new() { Source = "images/avatar.png", Alt = "Аватар" },
-            Name = "Николаев Николай Николаевич",
-            Telephone = "+7 (777) 777-77-77",
-            Email = "taidj-23003@yandex.ru",
-            Address = "Россия, г. Москва, ул. Ленина, д. 50, кв. 2",
-            Index = 398290
-        };
+    {
+        Image = new() { Source = "images/avatar.png", Alt = "Аватар" },
+        Name = "Николаев Николай Николаевич",
+        Telephone = "+7 (777) 777-77-77",
+        Email = "taidj-23003@yandex.ru",
+        Address = "Россия, г. Москва, ул. Ленина, д. 50, кв. 2",
+        Index = 398290, 
+        Password = "12345"
+    };
+
+    private void Edit(){
+        modal?.Open();
+    }
+
+    private async void OnNameClick(){
+        await js.InvokeVoidAsync("setNameFocus");
+    }
+
+    private void OnValidSubmit(){
+        modal?.Close();
+    }
+
+    private void OnInvalidSubmit(){}
+
+    private async Task OnTelephoneClick(){
+        await js.InvokeVoidAsync("setEditTelFocus");
+    }
+
+    private async Task OnPasswordClick(){
+        await js.InvokeVoidAsync("setEditPassFocus");
+    }
+
+    private async Task OnAddressClick() {
+        await js.InvokeVoidAsync("setAddressFocus");
+    }
 }

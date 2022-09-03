@@ -17,7 +17,7 @@
         @if (Item.Price is not null)
         {
             <p class="cart__price">
-                @Item.Price руб.
+                @(Item.Price + (decimal) product.Weight) руб.
             </p>
         }
 

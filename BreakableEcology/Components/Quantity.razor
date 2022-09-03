@@ -2,7 +2,7 @@
     <label class="quantity__label">Количество:</label>
     <div class="quantity__counter">
         <button class="quantity__btn" type="button" aria-label="Уменьшить количество" @onclick="Decrement">-</button>
-        <input type="number" @bind=Value min="0" max="99" @bind:event="oninput"/>
+        <input type="number" @bind=Value min="0" max="99" @bind:event="oninput" @onfocusout="()=> ValueChanged.InvokeAsync(Value)" @onkeypress="OnKeyPress"/>
         <button class="quantity__btn" type="button" aria-label="Увеличить количество" @onclick="Increment">+</button>
     </div>
 </div>
@@ -44,5 +44,11 @@
         else Value++;
 
         await ValueChanged.InvokeAsync(Value);
+    }
+
+    private async Task OnKeyPress(KeyboardEventArgs args){
+        if (args.Key == "Enter"){
+            await ValueChanged.InvokeAsync(Value);
+        }
     }
 }
