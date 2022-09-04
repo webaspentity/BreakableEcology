@@ -28,5 +28,223 @@
     "inputFiles": [
       "Shared/MainLayout.razor.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app.min.js",
+    "inputFiles": [
+      "wwwroot/js/app.js"
+    ]
+  },
+  {
+    "outputFileName": "Components/Account.razor.min.css",
+    "inputFiles": [
+      "Components/Account.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Breadcrumb.razor.min.css",
+    "inputFiles": [
+      "Components/Breadcrumb.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Bullet.razor.min.css",
+    "inputFiles": [
+      "Components/Bullet.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Burger.razor.min.css",
+    "inputFiles": [
+      "Components/Burger.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Card.razor.min.css",
+    "inputFiles": [
+      "Components/Card.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Carousel.razor.min.css",
+    "inputFiles": [
+      "Components/Carousel.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/CartProduct.razor.min.css",
+    "inputFiles": [
+      "Components/CartProduct.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/DonationForm.razor.min.css",
+    "inputFiles": [
+      "Components/DonationForm.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/DropDown.razor.min.css",
+    "inputFiles": [
+      "Components/DropDown.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Footer.razor.min.css",
+    "inputFiles": [
+      "Components/Footer.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Form.razor.min.css",
+    "inputFiles": [
+      "Components/Form.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Header.razor.min.css",
+    "inputFiles": [
+      "Components/Header.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Menu.razor.min.css",
+    "inputFiles": [
+      "Components/Menu.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Modal.razor.min.css",
+    "inputFiles": [
+      "Components/Modal.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/OnTop.razor.min.css",
+    "inputFiles": [
+      "Components/OnTop.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Orders.razor.min.css",
+    "inputFiles": [
+      "Components/Orders.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Profile.razor.min.css",
+    "inputFiles": [
+      "Components/Profile.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Quantity.razor.min.css",
+    "inputFiles": [
+      "Components/Quantity.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Search.razor.min.css",
+    "inputFiles": [
+      "Components/Search.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/SectionTitle.razor.min.css",
+    "inputFiles": [
+      "Components/SectionTitle.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/Tooltip.razor.min.css",
+    "inputFiles": [
+      "Components/Tooltip.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Pages/About.razor.min.css",
+    "inputFiles": [
+      "Pages/About.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Pages/AccountPage.razor.min.css",
+    "inputFiles": [
+      "Pages/AccountPage.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Pages/Cart.razor.min.css",
+    "inputFiles": [
+      "Pages/Cart.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Pages/Delivery.razor.min.css",
+    "inputFiles": [
+      "Pages/Delivery.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Sections/DetailSection.razor.min.css",
+    "inputFiles": [
+      "Sections/DetailSection.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Sections/DonationSection.razor.min.css",
+    "inputFiles": [
+      "Sections/DonationSection.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Sections/Section.razor.min.css",
+    "inputFiles": [
+      "Sections/Section.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Shared/NotFoundLayout.razor.min.css",
+    "inputFiles": [
+      "Shared/NotFoundLayout.razor.css"
+    ]
+  },
+  {
+    "outputFileName": "Components/styles.min.css",
+    "inputFiles": [
+      "Components/Account.razor.min.css",
+      "Components/Breadcrumb.razor.min.css",
+      "Components/Bullet.razor.min.css",
+      "Components/Burger.razor.min.css",
+      "Components/Card.razor.min.css",
+      "Components/Carousel.razor.min.css",
+      "Components/CartProduct.razor.min.css",
+      "Components/Container.razor.min.css",
+      "Components/DonationForm.razor.min.css",
+      "Components/DropDown.razor.min.css",
+      "Components/Footer.razor.min.css",
+      "Components/Form.razor.min.css",
+      "Components/Header.razor.min.css",
+      "Components/Logo.razor.min.css",
+      "Components/Menu.razor.min.css",
+      "Components/Modal.razor.min.css",
+      "Components/OnTop.razor.min.css",
+      "Components/Orders.razor.min.css",
+      "Components/Profile.razor.min.css",
+      "Components/Quantity.razor.min.css",
+      "Components/Search.razor.min.css",
+      "Components/SectionTitle.razor.min.css",
+      "Components/Telephone.razor.min.css",
+      "Components/Tooltip.razor.min.css",
+      "Pages/About.razor.min.css",
+      "Pages/AccountPage.razor.min.css",
+      "Pages/Cart.razor.min.css",
+      "Pages/Delivery.razor.min.css",
+      "Sections/DetailSection.razor.min.css",
+      "Sections/DonationSection.razor.min.css",
+      "Sections/Section.razor.min.css",
+      "Shared/MainLayout.razor.min.css",
+      "Shared/NotFoundLayout.razor.min.css"
+    ]
   }
 ]

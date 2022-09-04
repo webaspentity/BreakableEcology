@@ -43,7 +43,7 @@
     }
 
 .quantity input {
-    font-family: 'Gilroy';
+    font-family: 'Gilroy', sans-serif;
     border: none;
     background: transparent;
     text-align: center;
