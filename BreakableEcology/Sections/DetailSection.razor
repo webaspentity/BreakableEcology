@@ -30,7 +30,7 @@
                         </InputRadioGroup>
                     </EditForm>
 
-                    <div class="details__price">@product.Price руб.</div>
+                    <div class="details__price">@((product.Price + product.Weight) * product.Quantity) руб.</div>
 
                     <Quantity @bind-Value="product.Quantity" />
 
@@ -66,7 +66,7 @@
     {
         if (IsProduct)
         {
-            product = new() { Price = Item.Price, Name = Item.Title, Weight = 200 };
+            product = new() { Price = Item.Price, Name = Item.Title, Weight = 200, Quantity = 1 };
         }
         Item.Text = new[] { "Дополнительный пюреобразный пигментирующий корм, для птенцов с красным оперением.", "Отлично подходит для увеличения поступления питательных веществ на особенных этапах жизни зерноядных птиц (при линьке и размножении), а также в периоды, когда животное испытывает стресс." };
     }
