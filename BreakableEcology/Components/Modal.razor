@@ -1,6 +1,6 @@
 ﻿@inject IJSRuntime js
 
-<dialog class="dialog" @ref=dialog @onmousedown="Close">
+<dialog class="dialog" @ref=dialog @onmousedown="Close" @onkeydown="OnKeyDown">
     <div class="dialog__body" @onmousedown:stopPropagation>
         @ChildContent
         <button class="button__close" type="button" @onclick="Close">
@@ -24,5 +24,11 @@
     {
         await js.InvokeVoidAsync("closeDialog", dialog);
         await js.InvokeVoidAsync("scrollUnlock");
+    }
+
+    private async Task OnKeyDown(KeyboardEventArgs args){
+        if (args.Key == "Escape"){
+            await js.InvokeVoidAsync("scrollUnlock");
+        }
     }
 }
